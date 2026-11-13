@@ -1,0 +1,4 @@
+.preview/
+.env*
+!.env.example
+node_modules/

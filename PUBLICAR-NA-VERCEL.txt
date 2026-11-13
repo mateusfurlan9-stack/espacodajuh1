@@ -1,0 +1,26 @@
+ESPAÇO DA JUH — CORREÇÃO DOS HORÁRIOS NA VERCEL
+
+O problema: o site anterior foi publicado sem as rotas do servidor da agenda. Por isso /api/availability respondia 404.
+
+COMO ATUALIZAR O SEU PROJETO EXISTENTE
+1. Extraia espaco-da-juh.zip.
+2. Atualize o repositório GitHub ligado ao projeto espacodajuh na Vercel com TODOS os arquivos dentro da pasta espaco-da-juh. O arquivo vercel.json deve ficar na raiz do repositório, junto de package.json, public e scripts. Não envie somente public ou somente dist.
+3. Na Vercel, abra o projeto espacodajuh > Settings > Build and Deployment. Use Framework Preset: Other. Se houver substituições antigas, desative-as ou use Build Command: node scripts/build-vercel.mjs e Output Directory: dist. Root Directory deve apontar à pasta que contém vercel.json, normalmente a raiz.
+4. Faça commit das alterações no GitHub. Aguarde a NOVA publicação terminar como Ready. Um simples Redeploy do código antigo não inclui a correção.
+5. Abra https://espacodajuh.vercel.app em uma janela anônima, selecione um serviço e clique em Escolher dia e horário. Os dias e horários devem aparecer.
+6. Para verificar a gravação, faça uma reserva real autorizada. Confira no painel e cancele pelo painel se for um teste, para liberar o horário.
+
+LINKS
+Clientes na Vercel: https://espacodajuh.vercel.app
+Agenda principal: https://espaco-da-juh-agenda.wiseraven8.chatgpt.site
+Painel: https://espaco-da-juh-agenda.wiseraven8.chatgpt.site/admin
+
+COMO FUNCIONA
+A Vercel mostra a página das clientes. As consultas e reservas usam o servidor compartilhado da agenda principal, que guarda os dados no banco. O painel vê esses mesmos registros. Não precisa cadastrar outro banco ou colocar senha no código da Vercel. Não exclua nem torne privada a agenda principal.
+
+No painel, a Juh confere o comprovante do sinal de 50% e confirma o pedido. O restante é pago pessoalmente. Pedidos aguardando comprovante já reservam o horário; cancele pedidos abandonados para liberar a vaga. O site não verifica pagamentos bancários automaticamente.
+
+O painel requer login com a conta ChatGPT autorizada. O proprietário transfere esse acesso em Acesso da Juh usando o e-mail da conta dela. A chave Pix não configura automaticamente o acesso ao painel.
+
+IMPORTANTE
+A configuração de envio de reservas autoriza o domínio espacodajuh.vercel.app. Se trocar o domínio, atualize a lista CLIENT_ORIGINS no servidor e publique novamente. Não publique scripts/dev.mjs como API de produção.

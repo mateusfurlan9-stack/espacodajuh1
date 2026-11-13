@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "node scripts/build-vercel.mjs",
+  "outputDirectory": "dist",
+  "redirects": [
+    {"source":"/admin","destination":"https://espaco-da-juh-agenda.wiseraven8.chatgpt.site/admin","permanent":false},
+    {"source":"/admin/","destination":"https://espaco-da-juh-agenda.wiseraven8.chatgpt.site/admin","permanent":false},
+    {"source":"/admin.html","destination":"https://espaco-da-juh-agenda.wiseraven8.chatgpt.site/admin","permanent":false}
+  ],
+  "rewrites": [
+    {"source":"/api/availability","destination":"https://espaco-da-juh-agenda.wiseraven8.chatgpt.site/api/availability"},
+    {"source":"/api/bookings","destination":"https://espaco-da-juh-agenda.wiseraven8.chatgpt.site/api/bookings"}
+  ],
+  "headers": [
+    {"source":"/api/:path*","headers":[
+      {"key":"Cache-Control","value":"no-store"},
+      {"key":"CDN-Cache-Control","value":"no-store"},
+      {"key":"x-vercel-enable-rewrite-caching","value":"0"}
+    ]}
+  ]
+}
